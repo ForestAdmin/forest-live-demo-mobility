@@ -40,7 +40,20 @@ collection('drives', {
     }
   }
 ],
-  fields: [],
+  fields: [
+    {
+      field: 'Total price',
+      type: 'Float',
+      get: (drive) => {
+        if (drive.terminatedAt) {
+          const priceKm = drive.km * drive.pricePerKm
+          const priceMin = (drive.terminatedAt - drive.startedAt)/60000 * drive.pricePerMinute
+          const totalPrice = (priceKm + priceMin)* (1+ drive.commission)
+          return totalPrice.toFixed(2)
+        } 
+      }
+    }
+  ],
   segments: [],
   
 });

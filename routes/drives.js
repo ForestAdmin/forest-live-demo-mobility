@@ -140,4 +140,14 @@ router.post('/actions/change-driver', permissionMiddlewareCreator.smartAction(),
     
 });
 
+//Cancel a drive
+
+router.post('/actions/cancel-drive', permissionMiddlewareCreator.smartAction(),
+  (req, res) => {
+    const id =  req.body.data.attributes.ids[0];
+  
+    return drives.update({ status: 'cancelled'}, { where: { id: id } })
+      .then(res.send({ success: 'Drive has been cancelled successfully!' }));
+});
+
 module.exports = router;

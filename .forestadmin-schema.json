@@ -525,6 +525,21 @@
     "onlyForRelationships": false,
     "paginationType": "page",
     "fields": [{
+      "field": "Total price",
+      "type": "Float",
+      "defaultValue": null,
+      "enums": null,
+      "integration": null,
+      "isFilterable": false,
+      "isPrimaryKey": false,
+      "isReadOnly": true,
+      "isRequired": false,
+      "isSortable": false,
+      "isVirtual": true,
+      "reference": null,
+      "inverseOf": null,
+      "validations": []
+    }, {
       "field": "commission",
       "type": "Number",
       "defaultValue": 0.15,
