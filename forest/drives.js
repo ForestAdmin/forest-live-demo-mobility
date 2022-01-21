@@ -43,7 +43,7 @@ collection('drives', {
   fields: [
     {
       field: 'Total price',
-      type: 'Float',
+      type: 'Number',
       get: (drive) => {
         if (drive.terminatedAt) {
           const priceKm = drive.km * drive.pricePerKm
@@ -51,6 +51,23 @@ collection('drives', {
           const totalPrice = (priceKm + priceMin)* (1+ drive.commission)
           return totalPrice.toFixed(2)
         } 
+      }
+    },
+    {
+      field: 'Driver picture',
+      type: 'String',
+      get: async (drive) => {
+        const driver = await drivers.findByPk(drive.driverIdKey)
+        return driver.profilePicture
+      }
+    },
+    {
+      field: 'Location',
+      type: 'String',
+      get: async (drive) => {
+        const driver = await drivers.findByPk(drive.driverIdKey)
+        const driveLocation = driver.location
+        return `${driveLocation[0]},${driveLocation[1]}`
       }
     }
   ],

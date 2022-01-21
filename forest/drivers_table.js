@@ -6,7 +6,7 @@ const { drivers } = require('../models');
 // - Smart fields: https://docs.forestadmin.com/documentation/reference-guide/fields/create-and-manage-smart-fields
 // - Smart relationships: https://docs.forestadmin.com/documentation/reference-guide/relationships/create-a-smart-relationship
 // - Smart segments: https://docs.forestadmin.com/documentation/reference-guide/segments/smart-segments
-collection('drivers', {
+collection('driversTable', {
   actions: [
   {
     name: 'Add fake drivers',
