@@ -65,41 +65,16 @@ router.delete('/drives', permissionMiddlewareCreator.delete(), (request, respons
 
 async function getRandomInstance (model) {
   let record = await model.findAll();
-  console.log(record);
   record = faker.helpers.shuffle(record)[0];
-  console.log(record);
   return record 
 }
 router.post('/actions/add-fake-drives', permissionMiddlewareCreator.smartAction(),
  async (req, res) => {
     for (i=0; i<5; i++) {
-      // try {
-      //   const randomCustomer = await customers.findAll({order: Sequelize.literal('random()'), limit:1})
-      //   return randomCustomer
-      // } catch(e) {
-      //   alert(e);
-      // }
 
-      // try {
-      //   const randomDriver = await drivers.findAll({order: Sequelize.literal('random()'), limit:1})
-      //   return randomDriver
-      // } catch(e) {
-      //   alert(e);
-      // }
       const randomCustomer = await getRandomInstance(customers);
       const randomDriver = await getRandomInstance(drivers);
-      console.log(randomCustomer.id);
-      console.log(randomDriver.id);
-      // console.log(customers.findAll());
-      // console.log(drivers.findAll());
-      // customers.findOne().then((record)=>{
-      //   const randomCustomer = record
-      //   console.log("customer", randomCustomer)
-      // });
-      // const randomDriver =  await drivers.findOne();
-      
-      
-  
+
       let driveStatus = ["live", "cancelled", "terminated"]
       driveStatus = faker.helpers.shuffle(driveStatus)[0]
       const startAt = new Date(faker.date.recent());

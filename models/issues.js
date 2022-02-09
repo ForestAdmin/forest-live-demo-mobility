@@ -5,15 +5,32 @@ module.exports = (sequelize, DataTypes) => {
   // This section contains the fields of your model, mapped to your table's columns.
   // Learn more here: https://docs.forestadmin.com/documentation/v/v6/reference-guide/models/enrich-your-models#declaring-a-new-field-in-a-model
   const Issues = sequelize.define('issues', {
-    reason: {
+    description: {
       type: DataTypes.STRING,
     },
-    priorityStatus: {
+    status: {
+      type: DataTypes.STRING,
+    },
+    priority: {
       type: DataTypes.STRING,
     },
     manager: {
       type: DataTypes.STRING,
     },
+    rating: {
+      type: DataTypes.INTEGER,
+    },
+    category: {
+      type: DataTypes.STRING,
+    },
+    underreviewAt: {
+      type: DataTypes.DATE,
+      defaultValue: null,
+    },
+    resolvedAt: {
+      type: DataTypes.DATE,
+      defaultValue: null,
+    }
   }, {
     tableName: 'issues',
     underscored: true,
