@@ -1615,11 +1615,11 @@
   }],
   "meta": {
     "liana": "forest-express-sequelize",
-    "liana_version": "8.3.2",
+    "liana_version": "9.3.10",
     "stack": {
       "database_type": "postgres",
       "engine": "nodejs",
-      "engine_version": "14.17.1",
+      "engine_version": "18.14.0",
       "orm_version": "5.15.2"
     }
   }
