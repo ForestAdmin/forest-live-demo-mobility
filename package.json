@@ -15,7 +15,7 @@
     "express": "~4.17.1",
     "express-jwt": "6.0.0",
     "faker": "^5.5.3",
-    "forest-express-sequelize": "^9.3.10",
+    "forest-express-sequelize": "^9.6.0",
     "morgan": "1.9.1",
     "pg": "~8.2.2",
     "require-all": "^3.0.0",
